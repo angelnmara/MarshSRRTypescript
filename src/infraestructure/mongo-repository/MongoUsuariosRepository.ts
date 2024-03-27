@@ -2,7 +2,7 @@ import { MongoClient } from "mongodb";
 import { Usuarios } from "../../domain/entity/Usuarios";
 import { UsuariosRepository } from "../../domain/repository/UsuariosRepository";
 
-const uri = "mongodb+srv://angelnmara:sD7mLAZ0Bi0P0LPK@cluster0.0913r1x.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://angelnmara:xxx@cluster0.0913r1x.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const client = new MongoClient(uri);
 
 const database = client.db("insertDB");
