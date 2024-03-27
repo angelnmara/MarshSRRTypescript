@@ -3,6 +3,7 @@ import "./shared/infrastructure/load-env-vars";
 import bodyParser from "body-parser";
 import express from "express";
 
+import { usuariosRouter } from "./infraestructure/router/UsuariosRouter";
 import { config } from "./shared/infrastructure/config";
 import { userRouter } from "./users/infrastructure/rest-api/user-router";
 
@@ -11,6 +12,7 @@ function bootstrap() {
 
   app.use(bodyParser.json());
   app.use("/users", userRouter);
+  app.use("/usuarios", usuariosRouter);
 
   const { port } = config.server;
 
