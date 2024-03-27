@@ -4,9 +4,13 @@ import { usuariosController } from "../dependencies";
 
 const usuariosRouter = express.Router();
 
-usuariosRouter.post(
-  "/:id/hola",
-  usuariosController.usuario.bind(usuariosController)
+usuariosRouter.get(
+  "/:id",
+  usuariosController.obtenerUsuarioPorId.bind(usuariosController)
+);
+
+usuariosRouter.post("",
+  usuariosController.guardarUsuario.bind(usuariosController)
 );
 
 export { usuariosRouter };

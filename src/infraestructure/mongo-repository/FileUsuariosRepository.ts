@@ -4,7 +4,7 @@ import { USUARIOS_COLLECTION } from "../../tools/colletions/UsuariosColletion";
 
 export class FileUsuariosRepository implements UsuariosRepository {
   async getById(id: string): Promise<Usuarios | null> {
-    console.log("mongoreporitory");
+    console.log("file repository find");
     const usuarios = USUARIOS_COLLECTION.find(
       (usuarios) => usuarios.IdUsuario == id
     );
@@ -20,8 +20,10 @@ export class FileUsuariosRepository implements UsuariosRepository {
         )
       : null;
   }
-  save(usuarios: Usuarios): Promise<Usuarios> {
-    throw new Error("Method not implemented.");
+  async save(usuarios: Usuarios): Promise<Usuarios> {
+    console.log("save repository file")
+    USUARIOS_COLLECTION.push(usuarios);
+    return usuarios;
   }
   getAll(): Promise<Usuarios[]> {
     throw new Error("Method not implemented.");
