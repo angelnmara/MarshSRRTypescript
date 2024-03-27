@@ -13,7 +13,7 @@
     "lint:fix": "npm run lint -- --fix",
     "build": "npm run build:clean && npm run build:tsc",
     "build:clean": "rimraf dist; exit 0",
-    "build:tsc": "tsc -p tsconfig.prod.json -w"
+    "build:tsc": "tsc -p tsconfig.prod.json"
   },
   "repository": {
     "type": "git",
