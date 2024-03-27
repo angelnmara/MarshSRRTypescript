@@ -17,13 +17,22 @@ export class UsuariosController {
       return res.status(500).send();
     }
   }
-  async guardarUsuario(req:Request, res:Response){
-    try{
+  async guardarUsuario(req: Request, res: Response) {
+    try {
       console.log("guarda usuario controller");
       const usuario = await this.usuarioService.save(req.body);
       res.status(200).send(usuario);
-    }catch(error){
+    } catch (error) {
       return res.status(500).send();
+    }
+  }
+  async obtenerUsuariosTodos(req: Request, res: Response) {
+    try {
+      console.log("Obtiene todos los usuarios");
+      const usuarios = await this.usuarioService.findAll();
+      res.status(200).send(usuarios);
+    } catch (error) {
+      res.status(500).send();
     }
   }
 }

@@ -12,12 +12,17 @@ export class UsuariosService {
     }
     return usuarios;
   }
-  async save(usuarios:Usuarios):Promise<Usuarios>{
-    console.log('servicio guarda usuario')
+  async save(usuarios: Usuarios): Promise<Usuarios> {
+    console.log("servicio guarda usuario");
     const usuarioguardado = await this.usuariosRepository.save(usuarios);
-    if(!usuarios){
+    if (!usuarios) {
       throw new UsuarioNotFound("1");
     }
     return usuarioguardado;
+  }
+  async findAll(): Promise<Usuarios[]> {
+    console.log("Servicio obtener todos los usuarios");
+    const todosUsuarios = await this.usuariosRepository.getAll();
+    return todosUsuarios;
   }
 }

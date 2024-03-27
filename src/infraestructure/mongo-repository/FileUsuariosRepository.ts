@@ -1,6 +1,6 @@
 import { Usuarios } from "../../domain/entity/Usuarios";
 import { UsuariosRepository } from "../../domain/repository/UsuariosRepository";
-import { USUARIOS_COLLECTION } from "../../tools/colletions/UsuariosColletion";
+import { USUARIOS_COLLECTION } from "../../tools/collections/UsuariosCollection";
 
 export class FileUsuariosRepository implements UsuariosRepository {
   async getById(id: string): Promise<Usuarios | null> {
@@ -21,7 +21,7 @@ export class FileUsuariosRepository implements UsuariosRepository {
       : null;
   }
   async save(usuarios: Usuarios): Promise<Usuarios> {
-    console.log("save repository file")
+    console.log("save repository file");
     USUARIOS_COLLECTION.push(usuarios);
     return usuarios;
   }

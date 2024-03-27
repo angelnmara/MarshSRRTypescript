@@ -9,8 +9,14 @@ usuariosRouter.get(
   usuariosController.obtenerUsuarioPorId.bind(usuariosController)
 );
 
-usuariosRouter.post("",
+usuariosRouter.post(
+  "",
   usuariosController.guardarUsuario.bind(usuariosController)
+);
+
+usuariosRouter.get(
+  "",
+  usuariosController.obtenerUsuariosTodos.bind(usuariosController)
 );
 
 export { usuariosRouter };
