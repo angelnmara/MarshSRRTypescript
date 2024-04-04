@@ -1,27 +1,28 @@
 import { ItemsRepository } from "../../domain/repository/ItemsRepository";
-import { ItemNotFound } from "../../tools/error/ItemNotFound";
+import { ItemNotFound, ItemNotSave } from "../../tools/error/ItemNotFound";
 
 export abstract class ItemsService<T> {
   protected constructor(private readonly itemsRepository: ItemsRepository<T>) {}
   async findById(id: string): Promise<T> {
     console.log("service busca item  por id");
-    const usuarios = await this.itemsRepository.getById(id);
-    if (!usuarios) {
+    const items = await this.itemsRepository.getById(id);
+    console.log(`respuesta service item ${items}`);
+    if (!items) {
       throw new ItemNotFound(id);
     }
-    return usuarios;
+    return items;
   }
-  async save(usuarios: T): Promise<T> {
+  async save(item: T): Promise<T> {
     console.log("servicio guarda item");
-    const usuarioguardado = await this.itemsRepository.save(usuarios);
-    if (!usuarios) {
-      throw new ItemNotFound("1");
+    const itemGuardado = await this.itemsRepository.save(item);
+    if (!item) {
+      throw new ItemNotSave();
     }
-    return usuarioguardado;
+    return itemGuardado;
   }
   async findAll(): Promise<T[]> {
     console.log("Servicio obtener todos los items");
-    const todosUsuarios = await this.itemsRepository.getAll();
-    return todosUsuarios;
+    const todoItem = await this.itemsRepository.getAll();
+    return todoItem;
   }
 }

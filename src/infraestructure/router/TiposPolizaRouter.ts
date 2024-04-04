@@ -2,21 +2,21 @@ import express from "express";
 
 import { tiposPolizaController } from "../dependencies";
 
-const usuariosRouter = express.Router();
+const tipospolizaRouter = express.Router();
 
-usuariosRouter.get(
+tipospolizaRouter.get(
   "/:id",
   tiposPolizaController.obtenerTipoPolizaPorId.bind(tiposPolizaController)
 );
 
-usuariosRouter.post(
+tipospolizaRouter.post(
   "",
   tiposPolizaController.guardarTipoPoliza.bind(tiposPolizaController)
 );
 
-usuariosRouter.get(
+tipospolizaRouter.get(
   "",
   tiposPolizaController.obtenerTiposPolizaTodos.bind(tiposPolizaController)
 );
 
-export { usuariosRouter };
+export { tipospolizaRouter };

@@ -18,15 +18,19 @@ export async function connectToDatabase() {
   const client: mongoDB.MongoClient = new mongoDB.MongoClient(conexion);
   await client.connect();
   const db: mongoDB.Db = client.db(process.env.DB_NAME);
+
   const usuariosCollection: mongoDB.Collection = db.collection(
     process.env.USUARIOS_COLLECTION_NAME!
   );
   collections.usuarios = usuariosCollection;
+  
   const tipospolizaCollection: mongoDB.Collection = db.collection(
     process.env.TIPOSPOLIZA_COLLECTION_NAME!
   );
   collections.tipospoliza = tipospolizaCollection;
+  
   console.log(
-    `Successfully connected to database: ${db.databaseName} and collection: ${usuariosCollection.collectionName}`
+    `Successfully connected to database: ${db.databaseName} and collection: ${usuariosCollection.collectionName}` +
+    `Successfully connected to database: ${db.databaseName} and collection: ${tipospolizaCollection.collectionName}`
   );
 }

@@ -9,6 +9,7 @@ export class UsuariosController {
     try {
       console.log(`Controller obtener usuario ${req.params.id}`);
       const usuario = await this.usuarioService.findById(req.params.id);
+      console.log(`Usuario regresado por servicio usuario ${usuario}`);
       res.status(200).send(usuario);
     } catch (error) {
       if (error instanceof UsuarioNotFound) {
@@ -30,6 +31,7 @@ export class UsuariosController {
     try {
       console.log("Obtiene todos los usuarios");
       const usuarios = await this.usuarioService.findAll();
+      console.log(`Usuarios regresado por servicio usuario ${usuarios}`);
       res.status(200).send(usuarios);
     } catch (error) {
       res.status(500).send();

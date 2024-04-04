@@ -15,3 +15,9 @@ export class ItemNotFound extends Error {
     super(`Tipos poliza no encontrado ${id}`);
   }
 }
+
+export class ItemNotSave extends Error {
+  constructor() {
+    super(`Item no guardado`);
+  }
+}
