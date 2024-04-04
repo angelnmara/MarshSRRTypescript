@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-
 import { UsuariosService } from "../../application/service/UsuariosService";
 import { UsuarioNotFound } from "../../tools/error/UsuarioNotFound";
 
@@ -14,7 +13,7 @@ export class UsuariosController {
       if (error instanceof UsuarioNotFound) {
         res.status(404).send();
       }
-      return res.status(500).send();
+      res.status(500).send();
     }
   }
   async guardarUsuario(req: Request, res: Response) {
@@ -23,7 +22,7 @@ export class UsuariosController {
       const usuario = await this.usuarioService.save(req.body);
       res.status(200).send(usuario);
     } catch (error) {
-      return res.status(500).send();
+      res.status(500).send();
     }
   }
   async obtenerUsuariosTodos(req: Request, res: Response) {

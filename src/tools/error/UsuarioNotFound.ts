@@ -1,5 +1,11 @@
 export class UsuarioNotFound extends Error {
   constructor(id: string) {
-    super(`User not found ${id}`);
+    super(`Usuario no encontrado ${id}`);
+  }
+}
+
+export class TiposPolizaNotFound extends Error{
+  constructor(id:string){
+    super(`Tipos poliza no encontrado ${id}`);
   }
 }
