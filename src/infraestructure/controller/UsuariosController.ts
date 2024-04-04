@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
+
 import { UsuariosService } from "../../application/service/UsuariosService";
-import { UsuarioNotFound } from "../../tools/error/UsuarioNotFound";
+import { UsuarioNotFound } from "../../tools/error/ItemNotFound";
 
 export class UsuariosController {
   constructor(private readonly usuarioService: UsuariosService) {}

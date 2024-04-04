@@ -6,20 +6,17 @@ const usuariosRouter = express.Router();
 
 usuariosRouter.get(
   "/:id",
-  tiposPolizaController.obtenerTipoPolizaPorId
-  .bind(tiposPolizaController)
+  tiposPolizaController.obtenerTipoPolizaPorId.bind(tiposPolizaController)
 );
 
 usuariosRouter.post(
   "",
-  tiposPolizaController.guardarTipoPoliza
-  .bind(tiposPolizaController)
+  tiposPolizaController.guardarTipoPoliza.bind(tiposPolizaController)
 );
 
 usuariosRouter.get(
   "",
-  tiposPolizaController.obtenerTiposPolizaTodos
-  .bind(tiposPolizaController)
+  tiposPolizaController.obtenerTiposPolizaTodos.bind(tiposPolizaController)
 );
 
 export { usuariosRouter };

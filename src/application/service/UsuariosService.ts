@@ -1,28 +1,12 @@
 import { Usuarios } from "../../domain/entity/Usuarios";
-import { UsuariosRepository } from "../../domain/repository/UsuariosRepository";
-import { UsuarioNotFound } from "../../tools/error/UsuarioNotFound";
+import { ItemsRepository } from "../../domain/repository/ItemsRepository";
+import { ItemsService } from "./ItemsService";
 
-export class UsuariosService {
-  constructor(private readonly usuariosRepository: UsuariosRepository) {}
-  async findById(id: string): Promise<Usuarios> {
-    console.log("service busca usuario  por id");
-    const usuarios = await this.usuariosRepository.getById(id);
-    if (!usuarios) {
-      throw new UsuarioNotFound(id);
-    }
-    return usuarios;
+export class UsuariosService extends ItemsService<Usuarios> {
+  constructor(private readonly itemrepo: ItemsRepository<Usuarios>) {
+    super(itemrepo);
   }
-  async save(usuarios: Usuarios): Promise<Usuarios> {
-    console.log("servicio guarda usuario");
-    const usuarioguardado = await this.usuariosRepository.save(usuarios);
-    if (!usuarios) {
-      throw new UsuarioNotFound("1");
-    }
-    return usuarioguardado;
-  }
-  async findAll(): Promise<Usuarios[]> {
-    console.log("Servicio obtener todos los usuarios");
-    const todosUsuarios = await this.usuariosRepository.getAll();
-    return todosUsuarios;
+  get() {
+    this.itemrepo.getAll();
   }
 }

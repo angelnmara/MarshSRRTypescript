@@ -11,4 +11,6 @@ export const usuariosController = new UsuariosController(usuariosService);
 
 const mongoTiposPolizaRepository = new MongoTiposPolizaRepository();
 const tiposPolizaService = new TiposPolizaService(mongoTiposPolizaRepository);
-export const tiposPolizaController = new TiposPolizaController(tiposPolizaService);
+export const tiposPolizaController = new TiposPolizaController(
+  tiposPolizaService
+);
