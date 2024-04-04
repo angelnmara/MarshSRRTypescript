@@ -1,8 +1,8 @@
 import { TiposPoliza } from "../../domain/entity/TiposPoliza";
-import { TiposPolizaRepository } from "../../domain/repository/TiposPolizaRepository";
+import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { collections } from "./MongoConnection";
 
-export class MongoTiposPolizaRepository implements TiposPolizaRepository {
+export class MongoTiposPolizaRepository implements ItemsRepository<TiposPoliza> {
   async getById(id: string): Promise<TiposPoliza | null> {    
     const tipospolizaMDB = await collections.tipospoliza?.findOne<TiposPoliza>(
       { IdTipoPoliza: id },

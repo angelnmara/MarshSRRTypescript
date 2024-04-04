@@ -1,8 +1,8 @@
 import { Usuarios } from "../../domain/entity/Usuarios";
-import { UsuariosRepository } from "../../domain/repository/UsuariosRepository";
+import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { USUARIOS_COLLECTION } from "../../tools/collections/UsuariosCollection";
 
-export class FileUsuariosRepository implements UsuariosRepository {
+export class FileUsuariosRepository implements ItemsRepository<Usuarios> {
   async getById(id: string): Promise<Usuarios | null> {
     console.log("file repository find");
     const usuarios = USUARIOS_COLLECTION.find(

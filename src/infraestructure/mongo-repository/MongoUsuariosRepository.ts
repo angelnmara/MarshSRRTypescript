@@ -1,8 +1,8 @@
 import { Usuarios } from "../../domain/entity/Usuarios";
-import { UsuariosRepository } from "../../domain/repository/UsuariosRepository";
+import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { collections } from "./MongoConnection";
 
-export class MongoUsuariosRepository implements UsuariosRepository {
+export class MongoUsuariosRepository implements ItemsRepository<Usuarios> {
   async getById(id: string): Promise<Usuarios | null> {
     const usuarioMDB = await collections.usuarios?.findOne<Usuarios>(
       { IdUsuario: id },
