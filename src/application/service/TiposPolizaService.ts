@@ -4,9 +4,9 @@ import { ItemsService } from "./ItemsService";
 
 export class TiposPolizaService extends ItemsService<TiposPoliza> {
   constructor(private readonly itemrepo: ItemsRepository<TiposPoliza>) {
-    super(itemrepo)
+    super(itemrepo);
   }
-  get(){
+  get() {
     this.itemrepo.getAll();
   }
 }

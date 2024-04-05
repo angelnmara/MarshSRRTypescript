@@ -3,8 +3,8 @@ import "./shared/infrastructure/load-env-vars";
 import bodyParser from "body-parser";
 import express from "express";
 
-import { usuariosRouter } from "./infraestructure/router/UsuariosRouter";
 import { tipospolizaRouter } from "./infraestructure/router/TiposPolizaRouter";
+import { usuariosRouter } from "./infraestructure/router/UsuariosRouter";
 import { config } from "./shared/infrastructure/config";
 import { userRouter } from "./users/infrastructure/rest-api/user-router";
 
