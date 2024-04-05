@@ -16,7 +16,7 @@ tipospolizaRouter.post(
 
 tipospolizaRouter.get(
   "",
-  tiposPolizaController.obtenerTiposPolizaTodos.bind(tiposPolizaController)
+  tiposPolizaController.obtenerTipoPolizaTodos.bind(tiposPolizaController)
 );
 
 export { tipospolizaRouter };

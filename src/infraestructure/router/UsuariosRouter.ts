@@ -7,6 +7,7 @@ const usuariosRouter = express.Router();
 usuariosRouter.get(
   "/:id",
   usuariosController.obtenerUsuarioPorId.bind(usuariosController)
+  //.obtenerUsuarioPorId.bind(usuariosController)
 );
 
 usuariosRouter.post(

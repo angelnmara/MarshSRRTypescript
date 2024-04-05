@@ -1,10 +1,9 @@
 import * as dotenv from "dotenv";
 import * as mongoDB from "mongodb";
 
-export const collections: {
-  usuarios?: mongoDB.Collection;
-  tipospoliza?: mongoDB.Collection;
-} = {};
+import { Colecciones } from "../../domain/entity/Colecciones";
+
+export const collections: Colecciones = {};
 
 async function run(): Promise<void> {
   await connectToDatabase();
@@ -23,14 +22,20 @@ export async function connectToDatabase() {
     process.env.USUARIOS_COLLECTION_NAME!
   );
   collections.usuarios = usuariosCollection;
-  
+
   const tipospolizaCollection: mongoDB.Collection = db.collection(
     process.env.TIPOSPOLIZA_COLLECTION_NAME!
   );
   collections.tipospoliza = tipospolizaCollection;
-  
+
+  const heroCollection: mongoDB.Collection = db.collection(
+    process.env.TIPOSPOLIZA_COLLECTION_NAME!
+  );
+  collections.hero = heroCollection;
+
   console.log(
     `Successfully connected to database: ${db.databaseName} and collection: ${usuariosCollection.collectionName}` +
-    `Successfully connected to database: ${db.databaseName} and collection: ${tipospolizaCollection.collectionName}`
+      `Successfully connected to database: ${db.databaseName} and collection: ${tipospolizaCollection.collectionName}` +
+      `Successfully connected to database: ${db.databaseName} and collection: ${heroCollection.collectionName}`
   );
 }
