@@ -8,7 +8,7 @@ export abstract class ItemsController<T> {
   async obtenerItemPorId(req: Request, res: Response) {
     try {
       console.log("Controlador obten item por id");
-      const itemporid = await this.itemService.findById(req.params.id);      
+      const itemporid = await this.itemService.findById(req.params.id);
       res.status(200).send(itemporid);
     } catch (error) {
       if (error instanceof ItemNotFound) {
@@ -29,27 +29,27 @@ export abstract class ItemsController<T> {
   async obtenerTodos(req: Request, res: Response) {
     try {
       console.log("ItemsController obtiene todos los items");
-      const itemTodos = await this.itemService.findAll();      
+      const itemTodos = await this.itemService.findAll();
       res.status(200).send(itemTodos);
     } catch (error) {
       res.status(500).send();
     }
   }
-  async borraItem(req:Request, res: Response){
-    try{
+  async borraItem(req: Request, res: Response) {
+    try {
       console.log("Controlador borra item");
       const itemborrado = await this.itemService.delete(req.body);
       res.status(200).send(itemborrado);
-    }catch(error){
+    } catch (error) {
       res.status(500).send();
     }
   }
-  async borraItemById(req:Request, res:Response){
-    try{
+  async borraItemById(req: Request, res: Response) {
+    try {
       console.log("Controlador borra item por id");
       const itemborradoid = await this.itemService.deleteById(req.params.id);
       res.status(200).send(`{"itemsBorrados":${itemborradoid}}`);
-    }catch(error){
+    } catch (error) {
       res.status(500).send();
     }
   }

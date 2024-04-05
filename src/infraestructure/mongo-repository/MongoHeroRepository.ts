@@ -1,39 +1,30 @@
+import { Collection, Document } from "mongodb";
+
 import { Hero } from "../../domain/entity/Hero";
 import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { collections } from "./MongoConnection";
+import { MongoItemRepository } from "./MongoItemRepository";
 
-export class MongoHeroeRepository implements ItemsRepository<Hero> {
-  async deleteById(id:string): Promise<number|undefined> {
-    const heroMDB = await collections.hero?.deleteOne(
-      { id: id }
-    );
-    console.log(heroMDB);
-    return heroMDB?.deletedCount;
+export class MongoHeroeRepository
+  extends MongoItemRepository<Hero>
+  implements ItemsRepository<Hero>
+{
+  protected getCollection(
+    coleccion?: Collection<Document> | undefined
+  ): Collection<Document> {
+    return collections.hero!;
   }
+  protected querykey = "id";
+
   async delete(items: Hero): Promise<Hero> {
     console.log(`MongoHeroeRepository delete ${items.id} ${items.name}`);
-    await collections.hero?.deleteOne(items);
+    await this.getCollection().deleteOne(items);
     return items;
   }
-  async getById(id: string): Promise<Hero | null> {
-    const heroMDB = await collections.hero?.findOne<Hero>(
-      { id: id },
-      {
-        sort: { id: -1 },
-      }
-    );
-    console.log(heroMDB);
-    return heroMDB!;
-  }
+
   async save(items: Hero): Promise<Hero> {
     console.log(`MongoHeroeRepository save ${items}`);
-    await collections.hero?.insertOne(items);
+    await this.getCollection().insertOne(items);
     return items;
-  }
-  async getAll(): Promise<Hero[]> {
-    const hero = (await collections.hero
-      ?.find({})
-      .toArray()) as unknown as Hero[];
-    return hero;
   }
 }

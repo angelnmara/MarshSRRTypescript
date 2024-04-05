@@ -1,8 +1,8 @@
 import "./shared/infrastructure/load-env-vars";
 
 import bodyParser from "body-parser";
+import cors from "cors";
 import express from "express";
-import cors from "cors"
 
 import { heroRouter } from "./infraestructure/router/HeroRouter";
 import { tipospolizaRouter } from "./infraestructure/router/TiposPolizaRouter";

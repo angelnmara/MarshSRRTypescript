@@ -10,8 +10,8 @@ heroRouter.post("", heroController.guardarHeroe.bind(heroController));
 
 heroRouter.get("", heroController.obtenerHeroesTodos.bind(heroController));
 
-heroRouter.delete("", heroController.borraHeroe.bind(heroController))
+heroRouter.delete("", heroController.borraHeroe.bind(heroController));
 
-heroRouter.delete("/:id", heroController.borraHeroeById.bind(heroController))
+heroRouter.delete("/:id", heroController.borraHeroeById.bind(heroController));
 
 export { heroRouter };
