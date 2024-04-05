@@ -3,7 +3,7 @@ import { ItemNotFound, ItemNotSave } from "../../tools/error/ItemNotFound";
 
 export abstract class ItemsService<T> {
   protected constructor(private readonly itemsRepository: ItemsRepository<T>) {}
-  async findById(id: string): Promise<T> {
+  async findById(id: number): Promise<T> {
     console.log("service busca item  por id");
     const items = await this.itemsRepository.getById(id);
     console.log(`respuesta service item ${items}`);

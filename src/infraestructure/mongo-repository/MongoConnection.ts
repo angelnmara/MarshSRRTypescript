@@ -29,7 +29,7 @@ export async function connectToDatabase() {
   collections.tipospoliza = tipospolizaCollection;
 
   const heroCollection: mongoDB.Collection = db.collection(
-    process.env.TIPOSPOLIZA_COLLECTION_NAME!
+    process.env.HERO_COLLECTION_NAME!
   );
   collections.hero = heroCollection;
 

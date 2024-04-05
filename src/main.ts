@@ -3,6 +3,7 @@ import "./shared/infrastructure/load-env-vars";
 import bodyParser from "body-parser";
 import express from "express";
 
+import { heroRouter } from "./infraestructure/router/HeroRouter";
 import { tipospolizaRouter } from "./infraestructure/router/TiposPolizaRouter";
 import { usuariosRouter } from "./infraestructure/router/UsuariosRouter";
 import { config } from "./shared/infrastructure/config";
@@ -15,6 +16,7 @@ function bootstrap() {
   app.use("/users", userRouter);
   app.use("/usuarios", usuariosRouter);
   app.use("/tipospoliza", tipospolizaRouter);
+  app.use("/hero", heroRouter);
 
   const { port } = config.server;
 

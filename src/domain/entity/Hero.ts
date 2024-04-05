@@ -1,3 +1,3 @@
 export class Hero {
-  constructor(readonly id: number, readonly name: string) {}
+  constructor(readonly id: string, readonly name: string) {}
 }
