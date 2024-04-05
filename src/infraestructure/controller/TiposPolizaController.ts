@@ -25,4 +25,7 @@ export class TiposPolizaController extends ItemsController<TiposPoliza> {
   async borraTipoPoliza(req:Request, res:Response){
     this.borraItem(req, res);
   }
+  async borraTipoPolizaById(req:Request, res:Response){
+    this.borraItemById(req, res);
+  }
 }

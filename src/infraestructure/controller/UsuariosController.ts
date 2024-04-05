@@ -23,4 +23,7 @@ export class UsuariosController extends ItemsController<Usuarios> {
   async borraUsuario(req:Request, res:Response){
     this.borraItem(req, res);
   }
+  async borraUsuarioById(req:Request, res:Response){
+    this.borraItemById(req, res);
+  }
 }

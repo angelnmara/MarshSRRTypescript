@@ -23,4 +23,7 @@ export class HeroController extends ItemsController<Hero> {
   async borraHeroe(req:Request, res:Response){
     this.borraItem(req, res);
   }
+  async borraHeroeById(req:Request, res:Response){
+    this.borraItemById(req, res);
+  }
 }

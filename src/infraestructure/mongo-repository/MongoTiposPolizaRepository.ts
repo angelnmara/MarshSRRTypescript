@@ -3,6 +3,13 @@ import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { collections } from "./MongoConnection";
 
 export class MongoTiposPolizaRepository implements ItemsRepository<TiposPoliza> {
+  async deleteById(id:string): Promise<number|undefined> {
+    const tipospolizaMDB = await collections.tipospoliza?.deleteOne(
+      { IdTipoPoliza: id }
+    );
+    console.log(tipospolizaMDB);
+    return tipospolizaMDB?.deletedCount;
+  }
   async delete(items: TiposPoliza): Promise<TiposPoliza> {
     await collections.tipospoliza?.deleteOne(items);
     return items;

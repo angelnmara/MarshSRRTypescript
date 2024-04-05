@@ -3,4 +3,5 @@ export interface ItemsRepository<T> {
   save(items: T): Promise<T>;
   getAll(): Promise<Array<T>>;
   delete(items:T): Promise<T>;
+  deleteById(id:string):Promise<number|undefined>;
 }

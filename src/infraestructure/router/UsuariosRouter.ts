@@ -6,8 +6,7 @@ const usuariosRouter = express.Router();
 
 usuariosRouter.get(
   "/:id",
-  usuariosController.obtenerUsuarioPorId.bind(usuariosController)
-  //.obtenerUsuarioPorId.bind(usuariosController)
+  usuariosController.obtenerUsuarioPorId.bind(usuariosController)  
 );
 
 usuariosRouter.post(
@@ -23,6 +22,11 @@ usuariosRouter.get(
 usuariosRouter.delete(
   "",
   usuariosController.borraUsuario.bind(usuariosController)
+);
+
+usuariosRouter.delete(
+  "/:id",
+  usuariosController.borraUsuarioById.bind(usuariosController)
 );
 
 export { usuariosRouter };

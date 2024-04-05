@@ -3,6 +3,9 @@ import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { USUARIOS_COLLECTION } from "../../tools/collections/UsuariosCollection";
 
 export class FileUsuariosRepository implements ItemsRepository<Usuarios> {
+  deleteById(id: string): Promise<number | undefined> {
+    throw new Error("Method not implemented.");
+  }
   delete(items: Usuarios): Promise<Usuarios> {
     throw new Error("Method not implemented.");
   }

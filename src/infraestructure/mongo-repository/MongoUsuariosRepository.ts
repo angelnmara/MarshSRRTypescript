@@ -2,7 +2,15 @@ import { Usuarios } from "../../domain/entity/Usuarios";
 import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { collections } from "./MongoConnection";
 
-export class MongoUsuariosRepository implements ItemsRepository<Usuarios> {
+export class MongoUsuariosRepository implements ItemsRepository<Usuarios> {  
+  async deleteById(id:string): Promise<number|undefined> {
+    console.log(`MongoUsuariosRepository ${id}`);
+    const usuarioMDB = await collections.usuarios?.deleteOne(
+      { IdUsuario: id }
+    );
+    console.log(`MongoUsuariosRepository resp ${usuarioMDB?.deletedCount}`);
+    return usuarioMDB?.deletedCount;
+  }
   async delete(items: Usuarios): Promise<Usuarios> {
     await collections.usuarios?.deleteOne(items);
     return items;
