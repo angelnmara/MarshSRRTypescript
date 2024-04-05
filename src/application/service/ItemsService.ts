@@ -25,4 +25,8 @@ export abstract class ItemsService<T> {
     const todoItem = await this.itemsRepository.getAll();
     return todoItem;
   }
+  async delete(item:T):Promise<T>{
+    const itemBorrado = await this.itemsRepository.delete(item);
+    return itemBorrado;
+  }
 }

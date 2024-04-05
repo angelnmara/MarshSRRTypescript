@@ -20,4 +20,7 @@ export class HeroController extends ItemsController<Hero> {
   async guardarHeroe(req: Request, res: Response) {
     this.guardarItem(req, res);
   }
+  async borraHeroe(req:Request, res:Response){
+    this.borraItem(req, res);
+  }
 }

@@ -22,4 +22,7 @@ export class TiposPolizaController extends ItemsController<TiposPoliza> {
   async guardarTipoPoliza(req: Request, res: Response) {
     this.guardarItem(req, res);
   }
+  async borraTipoPoliza(req:Request, res:Response){
+    this.borraItem(req, res);
+  }
 }

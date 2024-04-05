@@ -20,4 +20,7 @@ export class UsuariosController extends ItemsController<Usuarios> {
   async guardarUsuario(req: Request, res: Response) {
     this.guardarItem(req, res);
   }
+  async borraUsuario(req:Request, res:Response){
+    this.borraItem(req, res);
+  }
 }

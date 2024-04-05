@@ -2,6 +2,7 @@ import "./shared/infrastructure/load-env-vars";
 
 import bodyParser from "body-parser";
 import express from "express";
+import cors from "cors"
 
 import { heroRouter } from "./infraestructure/router/HeroRouter";
 import { tipospolizaRouter } from "./infraestructure/router/TiposPolizaRouter";
@@ -11,6 +12,8 @@ import { userRouter } from "./users/infrastructure/rest-api/user-router";
 
 function bootstrap() {
   const app = express();
+
+  app.use(cors());
 
   app.use(bodyParser.json());
   app.use("/users", userRouter);

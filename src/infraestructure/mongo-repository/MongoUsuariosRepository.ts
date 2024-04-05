@@ -3,6 +3,10 @@ import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { collections } from "./MongoConnection";
 
 export class MongoUsuariosRepository implements ItemsRepository<Usuarios> {
+  async delete(items: Usuarios): Promise<Usuarios> {
+    await collections.usuarios?.deleteOne(items);
+    return items;
+  }
   async getById(id: string): Promise<Usuarios | null> {
     const usuarioMDB = await collections.usuarios?.findOne<Usuarios>(
       { IdUsuario: id },

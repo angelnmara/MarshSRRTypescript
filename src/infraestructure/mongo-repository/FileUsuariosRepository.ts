@@ -3,6 +3,9 @@ import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { USUARIOS_COLLECTION } from "../../tools/collections/UsuariosCollection";
 
 export class FileUsuariosRepository implements ItemsRepository<Usuarios> {
+  delete(items: Usuarios): Promise<Usuarios> {
+    throw new Error("Method not implemented.");
+  }
   async getById(id: string): Promise<Usuarios | null> {
     console.log("file repository find");
     const usuarios = USUARIOS_COLLECTION.find(

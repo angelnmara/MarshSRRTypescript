@@ -14,4 +14,6 @@ heroRouter.post("", heroController.guardarHeroe.bind(heroController));
 
 heroRouter.get("", heroController.obtenerHeroesTodos.bind(heroController));
 
+heroRouter.delete("", heroController.borraHeroe.bind(heroController))
+
 export { heroRouter };

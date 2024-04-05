@@ -19,4 +19,9 @@ tipospolizaRouter.get(
   tiposPolizaController.obtenerTipoPolizaTodos.bind(tiposPolizaController)
 );
 
+tipospolizaRouter.delete(
+  "",
+  tiposPolizaController.borraTipoPoliza.bind(tiposPolizaController)
+);
+
 export { tipospolizaRouter };

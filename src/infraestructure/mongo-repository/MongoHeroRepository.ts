@@ -3,6 +3,11 @@ import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { collections } from "./MongoConnection";
 
 export class MongoHeroeRepository implements ItemsRepository<Hero> {
+  async delete(items: Hero): Promise<Hero> {
+    console.log(`MongoHeroeRepository delete ${items.id} ${items.name}`);
+    await collections.hero?.deleteOne(items);
+    return items;
+  }
   async getById(id: string): Promise<Hero | null> {
     const heroMDB = await collections.hero?.findOne<Hero>(
       { id: id },
@@ -14,6 +19,7 @@ export class MongoHeroeRepository implements ItemsRepository<Hero> {
     return heroMDB!;
   }
   async save(items: Hero): Promise<Hero> {
+    console.log(`MongoHeroeRepository save ${items}`);
     await collections.hero?.insertOne(items);
     return items;
   }

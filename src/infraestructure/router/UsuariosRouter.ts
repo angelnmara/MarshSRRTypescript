@@ -20,4 +20,9 @@ usuariosRouter.get(
   usuariosController.obtenerUsuariosTodos.bind(usuariosController)
 );
 
+usuariosRouter.delete(
+  "",
+  usuariosController.borraUsuario.bind(usuariosController)
+);
+
 export { usuariosRouter };
