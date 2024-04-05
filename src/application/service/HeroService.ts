@@ -1,4 +1,4 @@
-import { Hero } from "../../domain/entity/hero";
+import { Hero } from "../../domain/entity/Hero";
 import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { ItemsService } from "./ItemsService";
 
