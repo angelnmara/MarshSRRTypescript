@@ -6,27 +6,27 @@ const tipospolizaRouter = express.Router();
 
 tipospolizaRouter.get(
   "/:id",
-  tiposPolizaController.obtenerTipoPolizaPorId.bind(tiposPolizaController)
+  tiposPolizaController.obtenerItemPorId.bind(tiposPolizaController)
 );
 
 tipospolizaRouter.post(
   "",
-  tiposPolizaController.guardarTipoPoliza.bind(tiposPolizaController)
+  tiposPolizaController.guardarItem.bind(tiposPolizaController)
 );
 
 tipospolizaRouter.get(
   "",
-  tiposPolizaController.obtenerTipoPolizaTodos.bind(tiposPolizaController)
+  tiposPolizaController.obtenerTodos.bind(tiposPolizaController)
 );
 
 tipospolizaRouter.delete(
   "",
-  tiposPolizaController.borraTipoPoliza.bind(tiposPolizaController)
+  tiposPolizaController.borraItem.bind(tiposPolizaController)
 );
 
 tipospolizaRouter.delete(
   "/:id",
-  tiposPolizaController.borraTipoPolizaById.bind(tiposPolizaController)
+  tiposPolizaController.borraItemById.bind(tiposPolizaController)
 );
 
 export { tipospolizaRouter };

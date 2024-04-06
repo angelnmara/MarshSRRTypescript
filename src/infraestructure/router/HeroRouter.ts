@@ -4,14 +4,14 @@ import { heroController } from "../dependencies";
 
 const heroRouter = express.Router();
 
-heroRouter.get("/:id", heroController.obtenerHeroePorId.bind(heroController));
+heroRouter.get("/:id", heroController.obtenerItemPorId.bind(heroController));
 
-heroRouter.post("", heroController.guardarHeroe.bind(heroController));
+heroRouter.post("", heroController.guardarItem.bind(heroController));
 
-heroRouter.get("", heroController.obtenerHeroesTodos.bind(heroController));
+heroRouter.get("", heroController.obtenerTodos.bind(heroController));
 
-heroRouter.delete("", heroController.borraHeroe.bind(heroController));
+heroRouter.delete("", heroController.borraItem.bind(heroController));
 
-heroRouter.delete("/:id", heroController.borraHeroeById.bind(heroController));
+heroRouter.delete("/:id", heroController.borraItemById.bind(heroController));
 
 export { heroRouter };

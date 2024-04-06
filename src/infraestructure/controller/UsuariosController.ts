@@ -10,20 +10,5 @@ export class UsuariosController extends ItemsController<Usuarios> {
   }
   get() {
     this.itemServiceResponse.findAll();
-  }
-  async obtenerUsuarioPorId(req: Request, res: Response) {
-    this.obtenerItemPorId(req, res);
-  }
-  async obtenerUsuariosTodos(req: Request, res: Response) {
-    this.obtenerTodos(req, res);
-  }
-  async guardarUsuario(req: Request, res: Response) {
-    this.guardarItem(req, res);
-  }
-  async borraUsuario(req: Request, res: Response) {
-    this.borraItem(req, res);
-  }
-  async borraUsuarioById(req: Request, res: Response) {
-    this.borraItemById(req, res);
-  }
+  }  
 }

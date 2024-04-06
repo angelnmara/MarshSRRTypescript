@@ -6,27 +6,27 @@ const usuariosRouter = express.Router();
 
 usuariosRouter.get(
   "/:id",
-  usuariosController.obtenerUsuarioPorId.bind(usuariosController)
+  usuariosController.obtenerItemPorId.bind(usuariosController)
 );
 
 usuariosRouter.post(
   "",
-  usuariosController.guardarUsuario.bind(usuariosController)
+  usuariosController.guardarItem.bind(usuariosController)
 );
 
 usuariosRouter.get(
   "",
-  usuariosController.obtenerUsuariosTodos.bind(usuariosController)
+  usuariosController.obtenerTodos.bind(usuariosController)
 );
 
 usuariosRouter.delete(
   "",
-  usuariosController.borraUsuario.bind(usuariosController)
+  usuariosController.borraItem.bind(usuariosController)
 );
 
 usuariosRouter.delete(
   "/:id",
-  usuariosController.borraUsuarioById.bind(usuariosController)
+  usuariosController.borraItemById.bind(usuariosController)
 );
 
 export { usuariosRouter };

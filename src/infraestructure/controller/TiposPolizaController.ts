@@ -13,19 +13,4 @@ export class TiposPolizaController extends ItemsController<TiposPoliza> {
   get() {
     this.itemsServiceResponse.findAll();
   }
-  async obtenerTipoPolizaPorId(req: Request, res: Response) {
-    this.obtenerItemPorId(req, res);
-  }
-  async obtenerTipoPolizaTodos(req: Request, res: Response) {
-    this.obtenerTodos(req, res);
-  }
-  async guardarTipoPoliza(req: Request, res: Response) {
-    this.guardarItem(req, res);
-  }
-  async borraTipoPoliza(req: Request, res: Response) {
-    this.borraItem(req, res);
-  }
-  async borraTipoPolizaById(req: Request, res: Response) {
-    this.borraItemById(req, res);
-  }
 }
