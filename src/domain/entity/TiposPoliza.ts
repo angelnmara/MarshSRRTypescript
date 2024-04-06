@@ -1,3 +1,5 @@
 export class TiposPoliza {
-  constructor(readonly IdTipoPoliza: string, readonly TipoPoliza: string) {}
+  constructor(    
+    readonly IdTipoPoliza: string, 
+    readonly TipoPoliza: string) {}
 }

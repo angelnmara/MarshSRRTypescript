@@ -17,13 +17,13 @@ export class MongoUsuariosRepository
     return collections.usuarios!;
   }
 
-  async delete(items: Usuarios): Promise<Usuarios> {
-    await this.getCollection().deleteOne(items);
-    return items;
+  async delete(usuario: Usuarios): Promise<Usuarios> {
+    await this.getCollection().deleteOne(usuario);
+    return usuario;
   }
 
-  async save(usuarios: Usuarios): Promise<Usuarios> {
-    await this.getCollection().insertOne(usuarios);
-    return usuarios;
+  async save(usuario: Usuarios): Promise<Usuarios> {
+    await this.getCollection().insertOne(usuario);
+    return usuario;
   }
 }

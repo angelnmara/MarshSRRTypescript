@@ -4,4 +4,5 @@ export class Colecciones {
   usuarios?: mongoDB.Collection;
   tipospoliza?: mongoDB.Collection;
   hero?: mongoDB.Collection;
+  estatuspoliza?:mongoDB.Collection;
 }

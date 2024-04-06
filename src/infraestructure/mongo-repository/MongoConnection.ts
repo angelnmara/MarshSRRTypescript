@@ -33,6 +33,11 @@ export async function connectToDatabase() {
   );
   collections.hero = heroCollection;
 
+  const estatuspolizaCollection: mongoDB.Collection = db.collection(
+    process.env.ESTATUS_POLIZA_COLLECTION_NAME!
+  );
+  collections.estatuspoliza = estatuspolizaCollection;
+
   console.log(
     `Successfully connected to database: ${db.databaseName} and collection: ${usuariosCollection.collectionName}` +
       `Successfully connected to database: ${db.databaseName} and collection: ${tipospolizaCollection.collectionName}` +

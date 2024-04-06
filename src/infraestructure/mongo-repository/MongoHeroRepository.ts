@@ -1,5 +1,4 @@
 import { Collection, Document } from "mongodb";
-
 import { Hero } from "../../domain/entity/Hero";
 import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { collections } from "./MongoConnection";
@@ -16,15 +15,15 @@ export class MongoHeroeRepository
   }
   protected querykey = "id";
 
-  async delete(items: Hero): Promise<Hero> {
-    console.log(`MongoHeroeRepository delete ${items.id} ${items.name}`);
-    await this.getCollection().deleteOne(items);
-    return items;
+  async delete(hero: Hero): Promise<Hero> {
+    console.log(`MongoHeroeRepository delete ${hero.id} ${hero.name}`);
+    await this.getCollection().deleteOne(hero);
+    return hero;
   }
 
-  async save(items: Hero): Promise<Hero> {
-    console.log(`MongoHeroeRepository save ${items}`);
-    await this.getCollection().insertOne(items);
-    return items;
+  async save(hero: Hero): Promise<Hero> {
+    console.log(`MongoHeroeRepository save ${hero}`);
+    await this.getCollection().insertOne(hero);
+    return hero;
   }
 }

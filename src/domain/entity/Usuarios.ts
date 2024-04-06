@@ -1,5 +1,5 @@
 export class Usuarios {
-  constructor(
+  constructor(    
     readonly IdUsuario: string,
     readonly Usuario: string,
     readonly Nombre: string,

@@ -17,9 +17,9 @@ export class MongoTiposPolizaRepository
 
   protected querykey = "IdTipoPoliza";
 
-  async delete(items: TiposPoliza): Promise<TiposPoliza> {
-    await this.getCollection().deleteOne(items);
-    return items;
+  async delete(tipospoliza: TiposPoliza): Promise<TiposPoliza> {
+    await this.getCollection().deleteOne(tipospoliza);
+    return tipospoliza;
   }
 
   async save(tiposPoliza: TiposPoliza): Promise<TiposPoliza> {
