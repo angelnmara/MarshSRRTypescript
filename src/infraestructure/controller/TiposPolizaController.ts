@@ -1,5 +1,3 @@
-import { Request, Response } from "express";
-
 import { ItemsService } from "../../application/service/ItemsService";
 import { TiposPoliza } from "../../domain/entity/TiposPoliza";
 import { ItemsController } from "./ItemsController";
