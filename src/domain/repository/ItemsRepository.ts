@@ -7,5 +7,5 @@ export interface ItemsRepository<T> {
   delete(items: T): Promise<T>;
   deleteById(id: string): Promise<number | undefined>;
   getById(id:ObjectId): Promise<T | null>
-  updateById(id:ObjectId, items:T):Promise<T>
+  updateById(id:ObjectId, items:T):Promise<T|Error>
 }
