@@ -66,4 +66,13 @@ export abstract class ItemsController<T> {
       res.status(500).send();
     }
   }
+  async updateItemById(req: Request, res: Response){
+    try{
+      console.log("Controlador actualiza item por id");
+      const itemActualizadoPorId = await this.itemService.updateById(new ObjectId(req.params.id), req.body);
+      res.status(200).send(itemActualizadoPorId);
+    }catch(error){
+      res.status(500).send();
+    }
+  }
 }

@@ -16,4 +16,6 @@ heroRouter.delete("", heroController.borraItem.bind(heroController));
 
 heroRouter.delete("/:id", heroController.borraItemById.bind(heroController));
 
+heroRouter.put("/:id", heroController.updateItemById.bind(heroController));
+
 export { heroRouter };

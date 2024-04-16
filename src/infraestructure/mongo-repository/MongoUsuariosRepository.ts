@@ -5,16 +5,11 @@ import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { collections } from "./MongoConnection";
 import { MongoItemRepository } from "./MongoItemRepository";
 
-export class MongoUsuariosRepository
-  extends MongoItemRepository<Usuarios>
-  implements ItemsRepository<Usuarios>
-{  
-  protected querykey = "Usuario";
-
-  protected getCollection(
-    coleccion?: mongoDB.Collection<mongoDB.BSON.Document> | undefined
-  ): mongoDB.Collection<mongoDB.BSON.Document> {
-    return collections.usuarios!;
+export class MongoUsuariosRepository extends MongoItemRepository<Usuarios> implements ItemsRepository<Usuarios>
+{
+  async updateById(id: mongoDB.BSON.ObjectId, usuarios: Usuarios): Promise<Usuarios> {
+    await this.getCollection().updateOne({_id:id}, usuarios);
+    return usuarios;
   }
 
   async delete(usuario: Usuarios): Promise<Usuarios> {
@@ -26,4 +21,12 @@ export class MongoUsuariosRepository
     await this.getCollection().insertOne(usuario);
     return usuario;
   }
+
+  protected querykey = "Usuario";
+
+  protected getCollection(
+    coleccion?: mongoDB.Collection<mongoDB.BSON.Document> | undefined
+  ): mongoDB.Collection<mongoDB.BSON.Document> {
+    return collections.usuarios!;
+  }  
 }

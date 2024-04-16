@@ -1,10 +1,11 @@
-import * as mongoDB from "mongodb";
+import { Collection, ObjectId } from "mongodb";
+
 
 export abstract class MongoItemRepository<T> {
 
   protected abstract getCollection(
-    coleccion?: mongoDB.Collection
-  ): mongoDB.Collection;
+    coleccion?: Collection
+  ): Collection;
 
   protected abstract querykey: string;
 
@@ -35,7 +36,7 @@ export abstract class MongoItemRepository<T> {
     return itemMDB?.deletedCount;
   }
 
-  async getById(id:mongoDB.ObjectId): Promise<T>{
+  async getById(id:ObjectId): Promise<T>{
     return await this.getCollection().findOne({_id:id}) as T
-  }
+  }  
 }

@@ -4,6 +4,7 @@ import { ItemNotFound, ItemNotFoundById, ItemNotSave } from "../../tools/error/I
 
 export abstract class ItemsService<T> {
   protected constructor(private readonly itemsRepository: ItemsRepository<T>) {}
+
   async findByField(id: string): Promise<T> {
     console.log("service busca item  por id");
     const items = await this.itemsRepository.getByField(id);
@@ -13,6 +14,7 @@ export abstract class ItemsService<T> {
     }
     return items;
   }
+
   async findById(id: ObjectId): Promise<T> {
     console.log("service busca item  por id");
     const items = await this.itemsRepository.getById(id);
@@ -22,6 +24,7 @@ export abstract class ItemsService<T> {
     }
     return items;
   }
+
   async save(item: T): Promise<T> {
     console.log("servicio guarda item");
     const itemGuardado = await this.itemsRepository.save(item);
@@ -30,17 +33,27 @@ export abstract class ItemsService<T> {
     }
     return itemGuardado;
   }
+
   async findAll(): Promise<T[]> {
     console.log("Servicio obtener todos los items");
     const todoItem = await this.itemsRepository.getAll();
     return todoItem;
   }
+
   async delete(item: T): Promise<T> {
     const itemBorrado = await this.itemsRepository.delete(item);
     return itemBorrado;
   }
+
   async deleteById(id: string): Promise<number | undefined> {
     const itemBorradoid = await this.itemsRepository.deleteById(id);
     return itemBorradoid;
   }
+
+  async updateById(id:ObjectId, item:T): Promise<T|Error>{
+    console.log('UpdateById itemService')
+    const itemActualizado = await this.itemsRepository.updateById(id, item);
+    return itemActualizado;
+  }
+
 }

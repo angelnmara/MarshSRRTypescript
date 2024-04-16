@@ -4,6 +4,9 @@ import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { USUARIOS_COLLECTION } from "../../tools/collections/UsuariosCollection";
 
 export class FileUsuariosRepository implements ItemsRepository<Usuarios> {
+  updateById(id: ObjectId, items: Usuarios): Promise<Usuarios> {
+    throw new Error("Method not implemented.");
+  }
   getById(id: ObjectId): Promise<Usuarios | null> {
     throw new Error("Method not implemented.");
   }
