@@ -1,14 +1,24 @@
+import { ObjectId } from "mongodb";
 import { ItemsRepository } from "../../domain/repository/ItemsRepository";
-import { ItemNotFound, ItemNotSave } from "../../tools/error/ItemNotFound";
+import { ItemNotFound, ItemNotFoundById, ItemNotSave } from "../../tools/error/ItemNotFound";
 
 export abstract class ItemsService<T> {
   protected constructor(private readonly itemsRepository: ItemsRepository<T>) {}
-  async findById(id: string): Promise<T> {
+  async findByField(id: string): Promise<T> {
+    console.log("service busca item  por id");
+    const items = await this.itemsRepository.getByField(id);
+    console.log(`respuesta service item ${items}`);
+    if (!items) {
+      throw new ItemNotFound(id);
+    }
+    return items;
+  }
+  async findById(id: ObjectId): Promise<T> {
     console.log("service busca item  por id");
     const items = await this.itemsRepository.getById(id);
     console.log(`respuesta service item ${items}`);
     if (!items) {
-      throw new ItemNotFound(id);
+      throw new ItemNotFoundById(id);
     }
     return items;
   }

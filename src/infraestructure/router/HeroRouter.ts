@@ -4,6 +4,8 @@ import { heroController } from "../dependencies";
 
 const heroRouter = express.Router();
 
+heroRouter.get("/field/:id", heroController.obtenerItemPorField.bind(heroController));
+
 heroRouter.get("/:id", heroController.obtenerItemPorId.bind(heroController));
 
 heroRouter.post("", heroController.guardarItem.bind(heroController));

@@ -6,7 +6,7 @@ const usuariosRouter = express.Router();
 
 usuariosRouter.get(
   "/:id",
-  usuariosController.obtenerItemPorId.bind(usuariosController)
+  usuariosController.obtenerItemPorField.bind(usuariosController)
 );
 
 usuariosRouter.post(

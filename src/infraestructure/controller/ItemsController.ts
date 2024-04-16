@@ -2,13 +2,26 @@ import { Request, Response } from "express";
 
 import { ItemsService } from "../../application/service/ItemsService";
 import { ItemNotFound } from "../../tools/error/ItemNotFound";
+import { ObjectId } from "mongodb";
 
 export abstract class ItemsController<T> {
   constructor(private readonly itemService: ItemsService<T>) {}
-  async obtenerItemPorId(req: Request, res: Response) {
+  async obtenerItemPorId(req: Request, res: Response){
     try {
       console.log("Controlador obten item por id");
-      const itemporid = await this.itemService.findById(req.params.id);
+      const itemporid = await this.itemService.findById(new ObjectId(req.params.id));
+      res.status(200).send(itemporid);
+    } catch (error) {
+      if (error instanceof ItemNotFound) {
+        res.status(404).send();
+      }
+      res.status(500).send();
+    }
+  }
+  async obtenerItemPorField(req: Request, res: Response) {
+    try {
+      console.log("Controlador obten item por id");
+      const itemporid = await this.itemService.findByField(req.params.id);
       res.status(200).send(itemporid);
     } catch (error) {
       if (error instanceof ItemNotFound) {

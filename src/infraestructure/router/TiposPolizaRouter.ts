@@ -6,7 +6,7 @@ const tipospolizaRouter = express.Router();
 
 tipospolizaRouter.get(
   "/:id",
-  tiposPolizaController.obtenerItemPorId.bind(tiposPolizaController)
+  tiposPolizaController.obtenerItemPorField.bind(tiposPolizaController)
 );
 
 tipospolizaRouter.post(

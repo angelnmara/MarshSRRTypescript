@@ -1,3 +1,5 @@
+import { ObjectId } from "mongodb";
+
 export class UsuarioNotFound extends Error {
   constructor(id: string) {
     super(`Usuario no encontrado ${id}`);
@@ -12,6 +14,12 @@ export class TiposPolizaNotFound extends Error {
 
 export class ItemNotFound extends Error {
   constructor(id: string) {
+    super(`Tipos poliza no encontrado ${id}`);
+  }
+}
+
+export class ItemNotFoundById extends Error {
+  constructor(id: ObjectId) {
     super(`Tipos poliza no encontrado ${id}`);
   }
 }

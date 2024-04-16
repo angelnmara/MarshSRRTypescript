@@ -4,7 +4,7 @@ import { estatuspolizaController } from "../dependencies";
 
 const estatuspolizaRouter = express.Router();
 
-estatuspolizaRouter.get("/:id", estatuspolizaController.obtenerItemPorId.bind(estatuspolizaController));
+estatuspolizaRouter.get("/:id", estatuspolizaController.obtenerItemPorField.bind(estatuspolizaController));
 
 estatuspolizaRouter.post("", estatuspolizaController.guardarItem.bind(estatuspolizaController));
 

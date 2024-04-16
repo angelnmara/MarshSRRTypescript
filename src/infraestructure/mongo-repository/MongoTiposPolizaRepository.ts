@@ -1,4 +1,4 @@
-import { Collection, Document } from "mongodb";
+import { Collection, Document, ObjectId } from "mongodb";
 
 import { TiposPoliza } from "../../domain/entity/TiposPoliza";
 import { ItemsRepository } from "../../domain/repository/ItemsRepository";
@@ -9,6 +9,9 @@ export class MongoTiposPolizaRepository
   extends MongoItemRepository<TiposPoliza>
   implements ItemsRepository<TiposPoliza>
 {
+  getById(id: ObjectId): Promise<TiposPoliza | null> {
+    throw new Error("Method not implemented.");
+  }
   protected getCollection(
     coleccion?: Collection<Document> | undefined
   ): Collection<Document> {
