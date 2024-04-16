@@ -8,15 +8,8 @@ import { MongoItemRepository } from "./MongoItemRepository";
 export class MongoUsuariosRepository
   extends MongoItemRepository<Usuarios>
   implements ItemsRepository<Usuarios>
-{
-  async getById(id: mongoDB.ObjectId): Promise<Usuarios | null> {    
-    //var newId = new mongoDB.ObjectId(id);    
-    const itemMDB = await this.getCollection().findOne<Usuarios>(
-      { _id: [id] });
-    console.log(itemMDB);
-    return itemMDB;
-  }
-  protected querykey = "IdUsuario";
+{  
+  protected querykey = "Usuario";
 
   protected getCollection(
     coleccion?: mongoDB.Collection<mongoDB.BSON.Document> | undefined

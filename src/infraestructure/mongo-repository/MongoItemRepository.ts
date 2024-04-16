@@ -34,4 +34,8 @@ export abstract class MongoItemRepository<T> {
     console.log(`MongoUsuariosRepository resp ${itemMDB?.deletedCount}`);
     return itemMDB?.deletedCount;
   }
+
+  async getById(id:mongoDB.ObjectId): Promise<T>{
+    return await this.getCollection().findOne({_id:id}) as T
+  }
 }

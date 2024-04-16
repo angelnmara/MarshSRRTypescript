@@ -1,4 +1,4 @@
-import { Collection, Document, ObjectId } from "mongodb";
+import { Collection, Document } from "mongodb";
 import { Hero } from "../../domain/entity/Hero";
 import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { collections } from "./MongoConnection";
@@ -14,13 +14,6 @@ export class MongoHeroeRepository
     coleccion?: Collection<Document> | undefined
   ): Collection<Document> {
     return collections.hero!;
-  }
-
-  async getById(id: ObjectId): Promise<Hero | null> {
-    const itemMDB = await this.getCollection().findOne<Hero>(
-      { _id: [id] });
-    console.log(itemMDB);
-    return itemMDB;
   }
 
   async delete(hero: Hero): Promise<Hero> {

@@ -1,13 +1,10 @@
-import { Collection, Document, ObjectId } from "mongodb";
+import { Collection, Document } from "mongodb";
 import { EstatusPoliza } from "../../domain/entity/EstatusPoliza";
 import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { MongoItemRepository } from "./MongoItemRepository";
 import { collections } from "./MongoConnection"
 
-export class MongoEstatusPolizaRepository extends MongoItemRepository<EstatusPoliza> implements ItemsRepository<EstatusPoliza>{
-    getById(id: ObjectId): Promise<EstatusPoliza | null> {
-        throw new Error("Method not implemented.");
-    }
+export class MongoEstatusPolizaRepository extends MongoItemRepository<EstatusPoliza> implements ItemsRepository<EstatusPoliza>{    
     protected getCollection(coleccion?: Collection<Document> | undefined): Collection<Document> {
         return collections.estatuspoliza!;
     }

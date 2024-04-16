@@ -16,20 +16,21 @@ export class FileUsuariosRepository implements ItemsRepository<Usuarios> {
   async getByField(id: string): Promise<Usuarios | null> {
     console.log("file repository find");
     const usuarios = USUARIOS_COLLECTION.find(
-      (usuarios) => usuarios.IdUsuario == id
+      (usuarios) => usuarios.Usuario == id
     );
     return usuarios
-      ? new Usuarios(
-          usuarios.IdUsuario,
-          usuarios.Usuario,
-          usuarios.Nombre,
-          usuarios.Paterno,
-          usuarios.Materno,
-          usuarios.Habilitado,
-          usuarios.FechaRegistro
-        )
+      ? {
+        Usuario:usuarios.Usuario,
+        Nombre:usuarios.Nombre,
+        Paterno:usuarios.Paterno,
+        Materno:usuarios.Materno,
+        Habilitado:usuarios.Habilitado,
+        FechaRegistro:usuarios.FechaRegistro
+      }     
+                  
       : null;
   }
+
   async save(usuarios: Usuarios): Promise<Usuarios> {
     console.log("save repository file");
     USUARIOS_COLLECTION.push(usuarios);

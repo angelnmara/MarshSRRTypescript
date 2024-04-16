@@ -1,11 +1,11 @@
-export class Usuarios {
-  constructor(    
-    readonly IdUsuario: string,
-    readonly Usuario: string,
-    readonly Nombre: string,
-    readonly Paterno: string,
-    readonly Materno: string,
-    readonly Habilitado: boolean,
-    readonly FechaRegistro: Date
-  ) {}
+import { ObjectId } from "mongodb";
+
+export interface Usuarios {
+  _id?: ObjectId,
+  Usuario: string,
+  Nombre: string,
+  Paterno: string,
+  Materno: string,
+  Habilitado: boolean,
+  FechaRegistro: Date
 }
