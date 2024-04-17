@@ -10,7 +10,7 @@ export class FileUsuariosRepository implements ItemsRepository<Usuarios> {
   getById(id: ObjectId): Promise<Usuarios | null> {
     throw new Error("Method not implemented.");
   }
-  deleteById(id: string): Promise<number | undefined> {
+  deleteById(id: ObjectId): Promise<number | undefined> {
     throw new Error("Method not implemented.");
   }
   delete(items: Usuarios): Promise<Usuarios> {

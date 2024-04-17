@@ -27,10 +27,10 @@ export abstract class MongoItemRepository<T> {
     return items;
   }
   
-  async deleteById(id: string): Promise<number | undefined> {
+  async deleteById(id: ObjectId): Promise<number | undefined> {
     console.log(`MongoUsuariosRepository ${id}`);
     const itemMDB = await this.getCollection().deleteOne({
-      [this.querykey]: id,
+      _id: id,
     });
     console.log(`MongoUsuariosRepository resp ${itemMDB?.deletedCount}`);
     return itemMDB?.deletedCount;

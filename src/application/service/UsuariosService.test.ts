@@ -42,4 +42,14 @@ describe('Pruebas usuario service', ()=>{
             console.log(`Este es el resultado de la busqueda de usuario por id ${result._id}`);
         })
     })
+    test('Actualizacion de usuario por id', async()=>{
+        await usuarioService.updateById(idObject, {Usuario:"usuarioTestUpdate", 
+        Paterno:"testPaterno", 
+        Materno:"testMaterno", 
+        Nombre:"testNombre", 
+        Habilitado:true, 
+        FechaRegistro: new Date}).then((result)=>{
+            expect(result).not.toBeNull();
+        })        
+    })
 });

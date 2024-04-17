@@ -45,7 +45,7 @@ export abstract class ItemsService<T> {
     return itemBorrado;
   }
 
-  async deleteById(id: string): Promise<number | undefined> {
+  async deleteById(id: ObjectId): Promise<number | undefined> {
     const itemBorradoid = await this.itemsRepository.deleteById(id);
     return itemBorradoid;
   }

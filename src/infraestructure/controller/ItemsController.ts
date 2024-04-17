@@ -60,7 +60,7 @@ export abstract class ItemsController<T> {
   async borraItemById(req: Request, res: Response) {
     try {
       console.log("Controlador borra item por id");
-      const itemborradoid = await this.itemService.deleteById(req.params.id);
+      const itemborradoid = await this.itemService.deleteById(new ObjectId(req.params.id));
       res.status(200).send(`{"itemsBorrados":${itemborradoid}}`);
     } catch (error) {
       res.status(500).send();

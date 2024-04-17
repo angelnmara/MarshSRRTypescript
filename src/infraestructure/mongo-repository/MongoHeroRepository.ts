@@ -12,7 +12,7 @@ export class MongoHeroeRepository extends MongoItemRepository<Hero> implements I
       return hero;
     } catch (error) {
       console.log(error);
-      return {name:"Update error", message:"No se actualizo correctamente"};
+      return {name:"Update hero error", message:"Hero no se actualizo correctamente"};
     }
   }
   async delete(hero: Hero): Promise<Hero> {
