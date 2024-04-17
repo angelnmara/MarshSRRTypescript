@@ -14,4 +14,6 @@ tipospolizaRouter.delete("", tiposPolizaController.borraItem.bind(tiposPolizaCon
 
 tipospolizaRouter.delete("/:id", tiposPolizaController.borraItemById.bind(tiposPolizaController));
 
+tipospolizaRouter.put("/:id", tiposPolizaController.updateItemById.bind(tiposPolizaController));
+
 export { tipospolizaRouter };

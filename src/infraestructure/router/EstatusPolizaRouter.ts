@@ -14,4 +14,6 @@ estatuspolizaRouter.delete("", estatuspolizaController.borraItem.bind(estatuspol
 
 estatuspolizaRouter.delete("/:id", estatuspolizaController.borraItemById.bind(estatuspolizaController));
 
+estatuspolizaRouter.put("/:id", estatuspolizaController.updateItemById.bind(estatuspolizaController));
+
 export { estatuspolizaRouter };
