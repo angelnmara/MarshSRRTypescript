@@ -50,9 +50,9 @@ export abstract class ItemsService<T> {
     return itemBorradoid;
   }
 
-  async updateById(id:ObjectId, item:T): Promise<T|Error>{
+  async updateById(id:ObjectId, itemObject:Object): Promise<Object|Error>{
     console.log('UpdateById itemService')
-    const itemActualizado = await this.itemsRepository.updateById(id, item);
+    const itemActualizado = await this.itemsRepository.updateById(id, itemObject);
     return itemActualizado;
   }
 

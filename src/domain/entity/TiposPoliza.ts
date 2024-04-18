@@ -1,5 +1,6 @@
-export class TiposPoliza {
-  constructor(    
-    readonly IdTipoPoliza: string, 
-    readonly TipoPoliza: string) {}
+import { ObjectId } from "mongodb";
+
+export interface TiposPoliza {
+  _id?: ObjectId,
+  readonly TipoPoliza: string
 }

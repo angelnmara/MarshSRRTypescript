@@ -1,4 +1,4 @@
-import { Collection, Document, ObjectId } from "mongodb";
+import { Collection, Document } from "mongodb";
 import { TiposPoliza } from "../../domain/entity/TiposPoliza";
 import { ItemsRepository } from "../../domain/repository/ItemsRepository";
 import { collections } from "./MongoConnection";
@@ -6,11 +6,6 @@ import { MongoItemRepository } from "./MongoItemRepository";
 
 export class MongoTiposPolizaRepository extends MongoItemRepository<TiposPoliza> implements ItemsRepository<TiposPoliza>
 {
-  async updateById(id: ObjectId, tiposPoliza: TiposPoliza): Promise<TiposPoliza> {
-    await this.getCollection().updateOne({_id:id}, tiposPoliza);
-    return tiposPoliza;
-  }
-
   async delete(tipospoliza: TiposPoliza): Promise<TiposPoliza> {
     await this.getCollection().deleteOne(tipospoliza);
     return tipospoliza;

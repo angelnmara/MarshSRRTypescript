@@ -38,5 +38,10 @@ export abstract class MongoItemRepository<T> {
 
   async getById(id:ObjectId): Promise<T>{
     return await this.getCollection().findOne({_id:id}) as T
-  }  
+  }
+  
+  async updateById(id: ObjectId, itemObject: Object): Promise<Object|Error> {
+    await this.getCollection().updateOne({_id:id}, {$set:itemObject});
+    return itemObject;
+}
 }
