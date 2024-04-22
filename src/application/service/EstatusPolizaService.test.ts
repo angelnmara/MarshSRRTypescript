@@ -21,7 +21,7 @@ describe('Pruebas Estatus Poliza Service', ()=>{
     afterAll(()=>{
         return estatuspolizaService.delete({            
             _id:idObject,
-            EstatusPoliza:"Estatus poliza"
+            EstatusPoliza:"Estatus poliza Test"
         })        
     })
     test('Busca todas estatus poliza', async ()=>{
@@ -43,10 +43,17 @@ describe('Pruebas Estatus Poliza Service', ()=>{
             console.log(respuesta);
         })
     })
-    // test('busca estatus poliza por id', async ()=>{
-    //     await estatuspolizaService.deleteById("1").then((respuesta)=>{
-    //         expect(respuesta).not.toBeNull();
-    //         console.log(respuesta);
-    //     })
-    // });    
+    test('Actualiza estatus poliza por id', async ()=>{
+        await estatuspolizaService.updateById(idObject, {
+            EstatusPoliza:'Estatus poliza Test'
+        }).then((result)=>{
+            expect(result).not.toBeNull();
+        })
+    })
+    test('busca estatus poliza por id', async ()=>{
+        await estatuspolizaService.deleteById(new ObjectId("AAAAAAAAAAAAAAAAAAAAAAAA")).then((respuesta)=>{
+            expect(respuesta).not.toBeNull();
+            console.log(respuesta);
+        })
+    });    
 })
