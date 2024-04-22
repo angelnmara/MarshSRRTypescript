@@ -10,11 +10,11 @@ export class MongoEstatusPolizaRepository extends MongoItemRepository<EstatusPol
         await this.getCollection().insertOne(estatusPoliza);
         return estatusPoliza;
     }
-    async delete(estatusPoliza: EstatusPoliza): Promise<EstatusPoliza> {
-        console.log(`MongoHeroeRepository delete ${estatusPoliza._id} ${estatusPoliza.EstatusPoliza}`);
-        await this.getCollection().deleteOne(estatusPoliza);
-        return estatusPoliza;
-    }
+    // async delete(estatusPoliza: EstatusPoliza): Promise<EstatusPoliza> {
+    //     console.log(`MongoHeroeRepository delete ${estatusPoliza._id} ${estatusPoliza.EstatusPoliza}`);
+    //     await this.getCollection().deleteOne(estatusPoliza);
+    //     return estatusPoliza;
+    // }
     protected getCollection(coleccion?: Collection<Document> | undefined): Collection<Document> {
         return collections.estatuspoliza!;
     }

@@ -5,11 +5,11 @@ import { collections } from "./MongoConnection";
 import { MongoItemRepository } from "./MongoItemRepository";
 
 export class MongoHeroeRepository extends MongoItemRepository<Hero> implements ItemsRepository<Hero> {  
-  async delete(hero: Hero): Promise<Hero> {
-    console.log(`MongoHeroeRepository delete ${hero.name}`);
-    await this.getCollection().deleteOne(hero);
-    return hero;
-  }
+  // async delete(itemObject:Object): Promise<number> {
+  //   console.log(`MongoHeroeRepository delete ${itemObject}`);
+  //   const itemRes = await this.getCollection().deleteOne(itemObject);
+  //   return itemRes.deletedCount;
+  // }
 
   async save(hero: Hero): Promise<Hero> {
     console.log(`MongoHeroeRepository save ${hero}`);

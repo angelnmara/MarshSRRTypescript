@@ -7,10 +7,10 @@ import { MongoItemRepository } from "./MongoItemRepository";
 
 export class MongoUsuariosRepository extends MongoItemRepository<Usuarios> implements ItemsRepository<Usuarios>
 {
-  async delete(usuario: Usuarios): Promise<Usuarios> {
-    await this.getCollection().deleteOne(usuario);
-    return usuario;
-  }
+  // async delete(itemObject:Object): Promise<number> {
+  //   const itemRes = await this.getCollection().deleteMany(itemObject)
+  //   return itemRes.deletedCount;
+  // }
 
   async save(usuario: Usuarios): Promise<Usuarios> {
     await this.getCollection().insertOne(usuario);

@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb";
-import { connectToDatabase } from "../../infraestructure/mongo-repository/MongoConnection";
-import { MongoEstatusPolizaRepository } from "../../infraestructure/mongo-repository/MongoEstatusPolizaRepository";
-import { EstatusPolizaServices } from "./EstatusPolizaService";
+import { EstatusPolizaServices } from "../../../src/application/service/EstatusPolizaService";
+import { MongoEstatusPolizaRepository } from "../../../src/infraestructure/mongo-repository/MongoEstatusPolizaRepository";
+import { connectToDatabase } from "../../../src/infraestructure/mongo-repository/MongoConnection";
 
 const mongoestatuspolizaRepository = new MongoEstatusPolizaRepository();
 const estatuspolizaService = new EstatusPolizaServices(mongoestatuspolizaRepository);
@@ -19,10 +19,9 @@ describe('Pruebas Estatus Poliza Service', ()=>{
         })
     })
     afterAll(()=>{
-        return estatuspolizaService.delete({            
-            _id:idObject,
+        return estatuspolizaService.delete({                        
             EstatusPoliza:"Estatus poliza Test"
-        })        
+        });
     })
     test('Busca todas estatus poliza', async ()=>{
         await estatuspolizaService.findAll().then((respuesta)=>{

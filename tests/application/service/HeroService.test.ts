@@ -1,8 +1,7 @@
 import { ObjectId } from "mongodb";
-import { Hero } from "../../domain/entity/Hero";
-import { connectToDatabase } from "../../infraestructure/mongo-repository/MongoConnection"
-import { MongoHeroeRepository } from "../../infraestructure/mongo-repository/MongoHeroRepository"
-import { HeroService } from "./HeroService"
+import { HeroService } from "../../../src/application/service/HeroService";
+import { MongoHeroeRepository } from "../../../src/infraestructure/mongo-repository/MongoHeroRepository";
+import { connectToDatabase } from "../../../src/infraestructure/mongo-repository/MongoConnection";
 
 const mongoHeroRepository = new MongoHeroeRepository();
 const heroService = new HeroService(mongoHeroRepository)
@@ -18,10 +17,9 @@ describe('Pruebas Hero Service', ()=>{
         })
     })
     afterAll(()=>{
-        return heroService.delete({
-            _id: idObject,
+        return heroService.delete({      
             name:"test update"
-        })
+        });
     });
     test('Busca todos Heroes', async ()=>{
         await heroService.findAll().then((result)=>{
@@ -32,7 +30,7 @@ describe('Pruebas Hero Service', ()=>{
     test('Busca heroe por name', async ()=>{
         await heroService.findByField("test").then((resultField)=>{
             expect(resultField.name).toEqual("test");
-            const heroe = resultField as Hero;
+            const heroe = resultField
             console.log(`Este es el hero por nombre ${heroe}`)            
         });
     })

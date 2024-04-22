@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb";
-import { connectToDatabase } from "../../infraestructure/mongo-repository/MongoConnection";
-import { MongoUsuariosRepository } from "../../infraestructure/mongo-repository/MongoUsuariosRepository"
-import { UsuariosService } from "./UsuariosService";
+import { UsuariosService } from "../../../src/application/service/UsuariosService";
+import { MongoUsuariosRepository } from "../../../src/infraestructure/mongo-repository/MongoUsuariosRepository";
+import { connectToDatabase } from "../../../src/infraestructure/mongo-repository/MongoConnection";
 
 const mongoUsuarioRepository = new MongoUsuariosRepository();
 const usuarioService = new UsuariosService(mongoUsuarioRepository);
@@ -23,6 +23,9 @@ describe('Pruebas usuario service', ()=>{
             return idObject;
         })
     });
+    afterAll(()=>{
+        return usuarioService.delete({Usuario:"usuarioTestUpdate"});
+    })
     test('Busca todos los usuarios', async ()=>{
         await usuarioService.findAll().then((result)=>{
             expect(result.length).toBeGreaterThan(0);
@@ -41,7 +44,7 @@ describe('Pruebas usuario service', ()=>{
             expect(result).not.toBeNull();
             console.log(`Este es el resultado de la busqueda de usuario por id ${result._id}`);
         })
-    })
+    })    
     test('Actualizacion de usuario por id', async()=>{
         await usuarioService.updateById(idObject, {Usuario:"usuarioTestUpdate", 
         Paterno:"testPaterno", 
@@ -51,5 +54,10 @@ describe('Pruebas usuario service', ()=>{
         FechaRegistro: new Date}).then((result)=>{
             expect(result).not.toBeNull();
         })        
+    })
+    test('Borra usuario por id', async()=>{
+        await usuarioService.deleteById(idObject).then((result)=>{
+            expect(result).toEqual(1);
+        })
     })
 });

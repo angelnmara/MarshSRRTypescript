@@ -26,7 +26,7 @@ export abstract class MongoItemRepository<T> {
       .toArray()) as unknown as T[];
     return items;
   }
-  
+
   async deleteById(id: ObjectId): Promise<number | undefined> {
     console.log(`MongoUsuariosRepository ${id}`);
     const itemMDB = await this.getCollection().deleteOne({
@@ -36,12 +36,17 @@ export abstract class MongoItemRepository<T> {
     return itemMDB?.deletedCount;
   }
 
-  async getById(id:ObjectId): Promise<T>{
-    return await this.getCollection().findOne({_id:id}) as T
+  async delete(itemObject: Object): Promise<number> {
+    const itemMDB = await this.getCollection().deleteMany(itemObject);
+    return itemMDB.deletedCount;
   }
-  
-  async updateById(id: ObjectId, itemObject: Object): Promise<Object|Error> {
-    await this.getCollection().updateOne({_id:id}, {$set:itemObject});
+
+  async getById(id: ObjectId): Promise<T> {
+    return await this.getCollection().findOne({ _id: id }) as T
+  }
+
+  async updateById(id: ObjectId, itemObject: Object): Promise<Object | Error> {
+    await this.getCollection().updateOne({ _id: id }, { $set: itemObject });
     return itemObject;
-}
+  }
 }

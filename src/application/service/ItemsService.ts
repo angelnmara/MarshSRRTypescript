@@ -40,8 +40,8 @@ export abstract class ItemsService<T> {
     return todoItem;
   }
 
-  async delete(item: T): Promise<T> {
-    const itemBorrado = await this.itemsRepository.delete(item);
+  async delete(itemObject:Object): Promise<number> {
+    const itemBorrado = await this.itemsRepository.delete(itemObject);
     return itemBorrado;
   }
 

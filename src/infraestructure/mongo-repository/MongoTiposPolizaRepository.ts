@@ -6,12 +6,13 @@ import { MongoItemRepository } from "./MongoItemRepository";
 
 export class MongoTiposPolizaRepository extends MongoItemRepository<TiposPoliza> implements ItemsRepository<TiposPoliza>
 {
-  async delete(tipospoliza: TiposPoliza): Promise<TiposPoliza> {
-    await this.getCollection().deleteOne(tipospoliza);
-    return tipospoliza;
-  }
+  // async delete(tipospoliza: TiposPoliza): Promise<TiposPoliza> {
+  //   await this.getCollection().deleteOne(tipospoliza);
+  //   return tipospoliza;
+  // }
 
   async save(tiposPoliza: TiposPoliza): Promise<TiposPoliza> {
+    console.log(`Inserta tipos poliza ${tiposPoliza}`);
     await this.getCollection().insertOne(tiposPoliza);
     return tiposPoliza;
   }
@@ -22,5 +23,5 @@ export class MongoTiposPolizaRepository extends MongoItemRepository<TiposPoliza>
     return collections.tipospoliza!;
   }
 
-  protected querykey = "IdTipoPoliza";
+  protected querykey = "TipoPoliza";
 }
